@@ -3,7 +3,7 @@ import { Image } from "lucide-react";
 
 const AboutMe = () => {
   return (
-    <section className=" text-white min-h-screen flex items-left justify-center px-6 md:px-16 mb-5">
+    <section id="about" className=" text-white min-h-screen flex items-left justify-center px-6 md:px-16 mb-5">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-6xl w-full">
         
         {/* Image Section */}

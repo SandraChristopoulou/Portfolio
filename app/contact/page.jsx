@@ -35,7 +35,7 @@ const ContactForm = () => {
 }
   return (
     <div>
-      <section className="flex justify-center items-center  min-h-screen " >
+      <section  id="contact" className="flex justify-center items-center  min-h-screen " >
         <form className=" bg-gradient-to-br from-[#2D1C7F] to-[#C8B3F6] max-w-[600px] w-full bg-white p-[25px] sm:p-[30px] rounded-lg shadow-md text-[#333] my-[25px]" onSubmit={onSubmit}>
           <h2 className=" text-white text-[30px] font-bold text-center">Contact Me</h2>
 

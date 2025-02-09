@@ -52,22 +52,33 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section className="min-h-screen p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12" id="projects">
-      <h2 className="text-center text-4xl font-bold text-[#C8B3F6] sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl ">
+    <section
+      className="min-h-screen p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 space-y-6 md:space-y-8 w-full  scroll-mt-28"
+      id="projects"
+    >
+      {/* Title */}
+      <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#C8B3F6]">
         My Projects
       </h2>
-     
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12 pl-12  pr-12 mb-12 ">
+
+      {/* Project Grid */}
+      <motion.ul
+        ref={ref}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 px-4 sm:px-6 md:px-12 w-full"
+        initial="initial"
+        animate={isInView ? "animate" : "initial"}
+        variants={{
+          animate: { transition: { staggerChildren: 0.2 } },
+        }}
+      >
         {filteredProjects.map((project, index) => (
           <motion.li
-            key={index}
+            key={project.id}
             variants={cardVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
+            transition={{ duration: 0.3, delay: index * 0.2 }}
+            layout
           >
             <ProjectCard
-              key={project.id}
               title={project.title}
               description={project.description}
               imgUrl={project.image}
@@ -76,7 +87,7 @@ const ProjectsSection = () => {
             />
           </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </section>
   );
 };
