@@ -18,7 +18,7 @@ const HeroSection = () => {
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start "
         >
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold ">
-            <span className=" bg-clip-text bg-gradient-to-r from-primary-400 to-secondary- text-[#b6a0e5]">
+            <span className="  font-bold bg-gradient-to-r from-[#586AE2] to-[#C252E1] bg-clip-text text-transparent">
               Hello, I&apos;m{" "}
             </span>
             <br></br>
@@ -42,11 +42,10 @@ const HeroSection = () => {
           A Web Designer & Developer specializing in creating visually stunning, user-centric, and high-performance websites. With a keen eye for design and expertise in modern web technologies, I craft seamless digital experiences that elevate brands and engage audiences.
           </p>
           <div>
-             <Link
-           href="/"
-            className="px-6 py-3 inline-block w-full sm:w-fit rounded-full text-white text-center bg-gradient-to-br from-[#2D1C7F] to-[#C8B3F6]">
-           Download CV
-            </Link>
+          <button className="relative overflow-hidden h-12 px-8 rounded-full bg-[#3d3a4e] text-white border-none cursor-pointer transition-all duration-500 before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-r from-[#586AE2] to-[#C252E1] before:scale-x-0 before:origin-left before:transition-transform before:duration-500 hover:before:scale-x-100">
+         <span className="relative z-10">Download CV</span>
+         </button>
+
        
           </div>
         </motion.div>

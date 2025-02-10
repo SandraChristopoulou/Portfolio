@@ -53,11 +53,11 @@ const ProjectsSection = () => {
 
   return (
     <section
-      className="min-h-screen p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 space-y-6 md:space-y-8 w-full  scroll-mt-28"
+      className="min-h-screen p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 space-y-6 md:space-y-8 w-full scroll-mt-28 bg-gradient-to-b from-[#05060b] via-[#2A2356] to-[#05060b] "
       id="projects"
     >
       {/* Title */}
-      <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#C8B3F6]">
+      <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
         My Projects
       </h2>
 
