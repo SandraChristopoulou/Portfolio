@@ -8,25 +8,25 @@ const projectsData = [
     id: 1,
     title: "Next.js Portfolio Website",
     description: "A responsive Website created with Next.js & Tailwind CSS",
-    image: "/images/projects/1.png",
+    image: "/images/portfolio.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/yumeko1232/My-Portfolio.git",
+    gitUrl: "https://github.com/yumeko1232/Portfolio.git",
     previewUrl: "/",
   },
   {
     id: 2,
     title: "Calculator",
     description: "A simple Calculator created with Next.js & Tailwind CSS",
-    image: "/images/projects/2.png",
+    image: "/images/calculator.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/yumeko1232/Calculator.git",
     previewUrl: "/",
   },
   {
     id: 3,
-    title: "E-commerce Application",
-    description: "Project 3 description",
-    image: "/images/projects/3.png",
+    title: "Job-Finder Project",
+    description: "A Job-Finder Project created with Next.js & Tailwind CSS",
+    image: "/images/job-find.png",
     tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "/",
@@ -62,9 +62,10 @@ const ProjectsSection = () => {
       </h2>
 
       {/* Project Grid */}
+      <div className="justify-center w-full">
       <motion.ul
         ref={ref}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 px-4 sm:px-6 md:px-12 w-full"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 px-4 sm:px-6 md:px-12 w-full justify-center items-center"
         initial="initial"
         animate={isInView ? "animate" : "initial"}
         variants={{
@@ -78,7 +79,7 @@ const ProjectsSection = () => {
             transition={{ duration: 0.3, delay: index * 0.2 }}
             layout
           >
-            <ProjectCard
+            <ProjectCard 
               title={project.title}
               description={project.description}
               imgUrl={project.image}
@@ -88,6 +89,7 @@ const ProjectsSection = () => {
           </motion.li>
         ))}
       </motion.ul>
+      </div>
     </section>
   );
 };
