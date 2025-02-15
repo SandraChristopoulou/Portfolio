@@ -9,7 +9,7 @@ import Link from "next/link";
 const HeroSection = () => {
   return (
  
-    <section className="lg:py-16 pt-32 min-h-screen ">
+    <section className="lg:py-16 pt-32 min-h-screen">
       <div className=" grid grid-cols-1 sm:grid-cols-12 min-h-screen px-4 sm:px-6 md:px-12 w-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
@@ -38,12 +38,13 @@ const HeroSection = () => {
               repeat={Infinity}
             />
           </h1>
-          <p className="text-white text-weight-bold text-left text-base sm:text-lg mb-6 lg:text-xl font-bold text-left">
+          <p className="text-white text-weight-bold text-base sm:text-lg mb-6 lg:text-xl font-bold">
           Creative Web Developer & Designer | Passionate about building functional, visually engaging digital experiences.
           </p>
           <div>
           <button className="relative overflow-hidden h-12 px-8 rounded-full bg-[#3d3a4e] text-white border-none cursor-pointer transition-all duration-500 before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-r from-[#586AE2] to-[#C252E1] before:scale-x-0 before:origin-left before:transition-transform before:duration-500 hover:before:scale-x-100">
-         <span className="relative z-10">Download CV</span>
+         <span
+         className="relative z-10">Download CV</span>
          </button>
 
        
