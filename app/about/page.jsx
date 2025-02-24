@@ -42,25 +42,25 @@ const AboutMe = () => {
             <div>
               <p className="text-lg">HTML & CSS</p>
               <div className="w-full bg-gray-700 h-2 rounded-full mt-2">
-                <div className="bg-gradient-to-br from-[#2D1C7F] via-[#7546E8] to-[#C8B3F6] h-2 rounded-full w-[90%]"></div>
+                <div className="bg-gradient-to-br from-[#2D1C7F] via-[#7546E8] to-[#C8B3F6] h-2 rounded-full w-[50%]"></div>
               </div>
             </div>
             <div>
               <p className="text-lg">React JS</p>
               <div className="w-full bg-gray-700 h-2 rounded-full mt-2">
-                <div className="bg-gradient-to-br from-[#2D1C7F] via-[#7546E8] to-[#C8B3F6] h-2 rounded-full w-[85%]"></div>
+                <div className="bg-gradient-to-br from-[#2D1C7F] via-[#7546E8] to-[#C8B3F6] h-2 rounded-full w-[50%]"></div>
               </div>
             </div>
             <div>
               <p className="text-lg">JavaScript</p>
               <div className="w-full bg-gray-700 h-2 rounded-full mt-2">
-                <div className="bg-gradient-to-br from-[#2D1C7F] via-[#7546E8] to-[#C8B3F6] h-2 rounded-full w-[80%]"></div>
+                <div className="bg-gradient-to-br from-[#2D1C7F] via-[#7546E8] to-[#C8B3F6] h-2 rounded-full w-[50%]"></div>
               </div>
             </div>
             <div>
               <p className="text-lg">Next JS</p>
               <div className="w-full bg-gray-700 h-2 rounded-full mt-2">
-                <div className="bg-gradient-to-br from-[#2D1C7F] via-[#7546E8] to-[#C8B3F6] h-2 rounded-full w-[75%]"></div>
+                <div className="bg-gradient-to-br from-[#2D1C7F] via-[#7546E8] to-[#C8B3F6] h-2 rounded-full w-[55%]"></div>
               </div>
             </div>
           </div>
