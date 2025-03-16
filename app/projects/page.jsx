@@ -31,6 +31,34 @@ const projectsData = [
     gitUrl: "/",
     previewUrl: "/",
   },
+  
+  {
+    id: 4,
+    title: "Job-Finder Project",
+    description: "A Job-Finder Project created with Next.js & Tailwind CSS",
+    image: "/images/job-find.png",
+    tag: ["All", "Web"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 5,
+    title: "Job-Finder Project",
+    description: "A Job-Finder Project created with Next.js & Tailwind CSS",
+    image: "/images/job-find.png",
+    tag: ["All", "Web"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
+  {
+    id: 6,
+    title: "Job-Finder Project",
+    description: "A Job-Finder Project created with Next.js & Tailwind CSS",
+    image: "/images/job-find.png",
+    tag: ["All", "Web"],
+    gitUrl: "/",
+    previewUrl: "/",
+  },
 ];
 
 const ProjectsSection = () => {

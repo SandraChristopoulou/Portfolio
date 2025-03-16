@@ -39,7 +39,7 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-white text-weight-bold text-base sm:text-lg mb-6 lg:text-xl font-bold">
-          Creative Web Developer & Designer | Passionate about building functional, visually engaging digital experiences.
+          Creative Junior Web Developer & Designer | Passionate about building functional, visually engaging digital experiences.
           </p>
           <div>
           <button className="relative overflow-hidden h-12 px-8 rounded-full bg-[#3d3a4e] text-white border-none cursor-pointer transition-all duration-500 before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-r from-[#586AE2] to-[#C252E1] before:scale-x-0 before:origin-left before:transition-transform before:duration-500 hover:before:scale-x-100">

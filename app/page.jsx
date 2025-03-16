@@ -10,7 +10,7 @@ export default function Home() {
     <main className="text-white min-h-screen "> 
     <WavyBackground>  <HeroSection /> </WavyBackground>
     <Projects />
-    <AboutMe /> 
+    <AboutMe />
     <ContactForm />
     </main> 
   );
