@@ -54,7 +54,7 @@ const Navbar = () => {
             <a href="#about" onClick={(e) => handleScroll(e, "about")}>About Me</a>
           </li>
           <li className="ml-10 font-extrabold text-xl cursor-pointer">
-            <Link  href={'/contact'} >
+            <Link  href={'#contact'} >
             Contact Me
             </Link>        
               </li>
