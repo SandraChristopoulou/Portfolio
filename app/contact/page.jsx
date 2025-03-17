@@ -47,7 +47,7 @@ const ContactForm = () => {
           <div className="w-full md:w-[48%] lg:w-[45%] p-6 sm:p-8 md:p-10 rounded-3xl " >
             <div className="space-y-12 sm:space-y-16">
               <div className="space-y-6">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-6 sm:mb-8">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-6 sm:mb-8 ">
                   Contact Information
                 </h2>
                 <div className="space-y-12 text-white text-center">

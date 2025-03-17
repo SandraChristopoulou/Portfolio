@@ -39,7 +39,7 @@ const Navbar = () => {
   };
   
   return (
-    <nav className={`fixed w-full h-20 ${scrolled ? "backdrop-blur-md bg-black/80 text-white p-4 shadow-black shadow-sm" : "bg-transparent"} transition-all z-50`}>
+    <nav className={`fixed w-full h-20 ${scrolled ? "backdrop-blur-md bg-black/70 text-white p-4 shadow-black shadow-sm" : "bg-transparent"} transition-all z-50`}>
       <div className="flex justify-between items-center h-full w-full px-4 xl:px-16">
         <Link href="/">
           <span className="text-xl font-extrabold">Sandra C.</span>
@@ -67,7 +67,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-[#05060b] p-10 ease-in duration-300 
+      <div className={`fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-[#000000fb] p-10 ease-in duration-300 
         ${menuOpen ? "translate-x-0" : "-translate-x-full"} z-50`}
       >
         <div className="flex w-full items-center justify-end">
