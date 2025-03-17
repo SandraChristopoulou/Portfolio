@@ -97,7 +97,7 @@ const AboutMe = () => {
         </div>
 
         {/* Experience Stats */}
-        <div className="flex gap-8 mt-8 justify-center md:justify-start items-center">
+        <div className="flex gap-8 mt-8 justify-center md:justify-center items-center mb-20">
           {[
             { value: "1+", label: "Years of Experience" },
             { value: "5+", label: "Projects Completed" },

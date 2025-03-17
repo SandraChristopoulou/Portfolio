@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import ProjectCard from "../../components/ProjectCard";
 import { motion, useInView } from "framer-motion";
 
-const projectsData = [
+const projectsData = [ 
   {
     id: 1,
     title: "Next.js Portfolio Website",
@@ -19,7 +19,7 @@ const projectsData = [
     description: "A simple Calculator created with Next.js & Tailwind CSS",
     image: "/images/calculator.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/SandraChristopoulou/Calculator.git",
+    gitUrl: "https://github.com/yumeko1232/Calculator.git",
 
   },
   {
@@ -81,7 +81,7 @@ const ProjectsSection = () => {
 
   return (
     <section
-      className=" min-h-screen p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 space-y-6 md:space-y-8 w-full scroll-mt-28 bg-gradient-to-b from-[#05060b] via-[#2A2356] to-[#05060b] "
+      className=" min-h-screen p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 space-y-6 md:space-y-8 w-full scroll-mt-28 bg-gradient-to-b from-[#000000] via-[#2A2356] to-[#000000] "
       id="projects"
     >
       {/* Title */}
@@ -90,7 +90,7 @@ const ProjectsSection = () => {
       </h2>
 
       {/* Project Grid */}
-      <div className="justify-center w-full">
+      <div className="justify-center w-full ">
       <motion.ul
         ref={ref}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12 px-4 sm:px-6 md:px-12 w-full justify-center items-center"

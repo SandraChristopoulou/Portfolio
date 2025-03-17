@@ -15,7 +15,7 @@ export const Footer = () => {
   <footer className="relative  overflow-x-clip w-full">
     <div className="  absolute h-[400px] w-[1600px] bottom-0 left-1/2 
     -translate-x-1/2 bg-[#2A2356]
-     [mask-image:radial-gradient(50%_50%_at_bottom_center,black,transparent)] -z-10"></div>
+     [mask-image:radial-gradient(50%_50%_at_bottom_center,black,transparent)] -z-10" ></div>
     <div className='container mx-auto'>
       <div className="border-t border-white/15 py-6 md text-sm flex flex-col items-center gap-8 ">
        <div className="text-white/40">&copy; 2025 Sandra Christopoulou. All rights reserved.</div>

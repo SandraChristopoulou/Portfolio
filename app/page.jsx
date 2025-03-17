@@ -9,8 +9,9 @@ export default function Home() {
   return (
     <main className="text-white min-h-screen "> 
     <WavyBackground>  <HeroSection /> </WavyBackground>
-    <Projects />
     <AboutMe />
+    <Projects />
+   
     <ContactForm />
     </main> 
   );
