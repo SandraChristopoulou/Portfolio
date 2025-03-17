@@ -68,7 +68,7 @@ const ContactForm = () => {
                     <AiOutlineInstagram size={32} />
                   </Link>
                   <Link
-                    href="https://github.com/yumeko1232"
+                    href="https://github.com/SandraChristopoulou"
                     className="text-white hover:text-[#ba53e1] transition-all duration-200 transform hover:scale-110"
                   >
                     <AiOutlineGithub size={32} />

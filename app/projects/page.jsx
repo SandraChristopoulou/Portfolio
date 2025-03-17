@@ -11,7 +11,7 @@ const projectsData = [
     image: "/images/portfolio.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/yumeko1232/Portfolio.git",
-    previewUrl: "/",
+
   },
   {
     id: 2,
@@ -19,8 +19,8 @@ const projectsData = [
     description: "A simple Calculator created with Next.js & Tailwind CSS",
     image: "/images/calculator.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/yumeko1232/Calculator.git",
-    previewUrl: "/",
+    gitUrl: "https://github.com/SandraChristopoulou/Calculator.git",
+
   },
   {
     id: 3,
@@ -29,35 +29,35 @@ const projectsData = [
     image: "/images/job-find.png",
     tag: ["All", "Web"],
     gitUrl: "/",
-    previewUrl: "/",
+
   },
   
   {
     id: 4,
-    title: "Job-Finder Project",
-    description: "A Job-Finder Project created with Next.js & Tailwind CSS",
-    image: "/images/job-find.png",
+    title: "Meme Generator Project",
+    description: " A Meme Generator API Project in JavaScript",
+    image: "/images/meme-generator.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/SandraChristopoulou/Meme-Generator.git",
+
   },
   {
     id: 5,
-    title: "Job-Finder Project",
-    description: "A Job-Finder Project created with Next.js & Tailwind CSS",
-    image: "/images/job-find.png",
+    title: "Weather App Project",
+    description: "A Weather App Project created with Javascript & HTML CSS",
+    image: "/images/weather-app.png",
     tag: ["All", "Web"],
     gitUrl: "/",
-    previewUrl: "/",
+
   },
   {
     id: 6,
-    title: "Job-Finder Project",
-    description: "A Job-Finder Project created with Next.js & Tailwind CSS",
-    image: "/images/job-find.png",
+    title: "Currency Converter ",
+    description: "A Currency Converter in Vite & React",
+    image: "/images/currency-converter.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/SandraChristopoulou/Currency-Converter.git",
+   
   },
 ];
 
@@ -112,7 +112,7 @@ const ProjectsSection = () => {
               description={project.description}
               imgUrl={project.image}
               gitUrl={project.gitUrl}
-              previewUrl={project.previewUrl}
+           
             />
           </motion.li>
         ))}
