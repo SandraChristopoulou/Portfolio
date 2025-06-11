@@ -2,6 +2,7 @@
 import React, { useState, useRef } from "react";
 import ProjectCard from "../../components/ProjectCard";
 import { motion, useInView } from "framer-motion";
+import ComingSoonCard from "@/components/ComingSoonCard";
 
 const projectsData = [ 
   {
@@ -43,8 +44,8 @@ const projectsData = [
   },
   {
     id: 5,
-    title: "Weather App Project",
-    description: "A Weather App Project created with Javascript & HTML CSS",
+    title: "Breathe Pilates Booking App",
+    description: "Created with PWA & NEXT JS",
     image: "/images/weather-app.png",
     tag: ["All", "Web"],
     gitUrl: "/",
@@ -100,22 +101,26 @@ const ProjectsSection = () => {
           animate: { transition: { staggerChildren: 0.2 } },
         }}
       >
-        {filteredProjects.map((project, index) => (
-          <motion.li
-            key={project.id}
-            variants={cardVariants}
-            transition={{ duration: 0.3, delay: index * 0.2 }}
-            layout
-          >
-            <ProjectCard 
-              title={project.title}
-              description={project.description}
-              imgUrl={project.image}
-              gitUrl={project.gitUrl}
-           
-            />
-          </motion.li>
-        ))}
+       {filteredProjects.map((project, index) => (
+  <motion.li
+    key={project.id}
+    variants={cardVariants}
+    transition={{ duration: 0.3, delay: index * 0.2 }}
+    layout
+  >
+    {project.id === 5 ? (
+      <ComingSoonCard />
+    ) : (
+      <ProjectCard 
+        title={project.title}
+        description={project.description}
+        imgUrl={project.image}
+        gitUrl={project.gitUrl}
+      />
+    )}
+  </motion.li>
+))}
+
       </motion.ul>
       </div>
     </section>

@@ -87,7 +87,6 @@ const Navbar = () => {
         {/* Social Icons */}
         <div className="flex flex-row justify-center gap-6 pt-10 items-center">
           <Link href="https://github.com/SandraChristopoulou"><AiOutlineGithub size={30} className="cursor-pointer" /></Link>
-          <Link href="https://www.instagram.com/christopoyloyyy/"><AiOutlineInstagram size={30} className="cursor-pointer" /></Link>
           <Link href="https://www.linkedin.com/in/alexandra-christopoulou-8ba4052b3/"><AiOutlineLinkedin size={30} className="cursor-pointer" /></Link>
         </div>
       </div>
