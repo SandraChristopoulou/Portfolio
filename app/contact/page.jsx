@@ -1,42 +1,32 @@
-"use client"
+"use client";
+import { useRef } from "react";
+import Swal from "sweetalert2";
+import Link from "next/link";
+import { AiOutlineGithub, AiOutlineLinkedin } from "react-icons/ai";
 
-import Swal from "sweetalert2"
-import Link from "next/link"
-import { AiOutlineInstagram, AiOutlineGithub, AiOutlineLinkedin } from "react-icons/ai"
-import { MapPin , Phone , Mail } from "lucide-react"
+export default function ContactPage() {
+  const formRef = useRef(null);
 
-const ContactForm = () => {
-  async function onSubmit(event) {
-    event.preventDefault()
-    const formData = new FormData(event.target)
+  function handleSend(e) {
+    e.preventDefault();
+    Swal.fire({
+      title: "Thank you!",
+      text: "Your message has been sent.",
+      icon: "success",
+      confirmButtonColor: "#ea1d6f",
+    });
+    formRef.current.reset();
+  }
 
-    formData.append("access_key", "53e91aca-902f-429d-bc01-45d6034b3076")
-
-    const object = Object.fromEntries(formData)
-    const json = JSON.stringify(object)
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: json,
-    })
-    const result = await response.json()
-    if (result.success) {
-      Swal.fire({
-        title: "Success!",
-        text: "Message sent successfully!",
-        icon: "success",
-      })
-    }
+  function handleCancel(e) {
+    e.preventDefault();
+    formRef.current.reset();
   }
 
   return (
     <div
       id="contact"
-      className="min-h-screen flex items-center justify-center px-4 py-12 sm:px-8 lg:px-16"
+      className="min-h-screen flex items-center justify-center px-4 sm:px-8 lg:px-16 py-8 sm:py-12 lg:py-24 font-montserrat font-bold tracking-wider text-[12px]"
       style={{
         backgroundImage: "url('/images/bg.png')",
         backgroundSize: "cover",
@@ -45,114 +35,136 @@ const ContactForm = () => {
         backgroundBlendMode: "overlay",
       }}
     >
-      <div className="w-full max-w-7xl mx-auto">
-        <div className="flex flex-col-reverse md:flex-row gap-8 sm:gap-12 md:gap-24 lg:gap-32 items-center md:items-stretch text-center md:text-left">
-
-          {/* Left Section - Contact Information */}
-          <div className="w-full md:w-[48%] lg:w-[45%] p-6 sm:p-8 md:p-10 rounded-3xl bg-[#1111118c] border border-transparent backdrop-blur-lg">
-            <div className="space-y-12 sm:space-y-16">
-              <div className="space-y-6">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-6 sm:mb-8">
-                  Contact Information
-                </h2>
-                <div className="space-y-12 text-white text-center">
-                  <div className="flex items-center gap-3 text-base sm:text-lg">
-                    <MapPin className="h-5 w-5 text-[#ffffff]" />{" "}
-                    <span>Loutraki, Greece 20300</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-base sm:text-lg">
-                    <Phone className="h-5 w-5 text-[#ffffff]" />{" "}
-                    <span>+30 694 7633 560</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-base sm:text-lg">
-                    <Mail className="h-5 w-5 text-[#ffffff]" />{" "}
-                    <span>christopalexandra@gmail.com</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-8">
-                <div className="flex gap-8">
-                  <Link
-                    href="https://github.com/SandraChristopoulou"
-                    className="text-white hover:text-[#ba53e1] transition-all duration-200 transform hover:scale-110"
-                  >
-                    <AiOutlineGithub size={32} />
-                  </Link>
-                  <Link
-                    href="https://www.linkedin.com/in/alexandra-christopoulou-8ba4052b3/"
-                    className="text-white hover:text-[#ba53e1] transition-all duration-200 transform hover:scale-110"
-                  >
-                    <AiOutlineLinkedin size={32} />
-                  </Link>
-                </div>
-              </div>
+      <div className="flex flex-col w-full max-w-3xl lg:max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 lg:px-24 lg:py-32">
+        <div className="relative rounded-2xl bg-[#3e3e3e]/80 shadow-2xl overflow-hidden">
+          {/* Header */}
+          <div className="flex items-center px-5 py-2 bg-[#4d4f4f] rounded-t-2xl">
+            <div className="flex items-center mr-auto space-x-1.5">
+              <span className="inline-block w-2 h-2 rounded-full bg-[#C252E1]" />
+              <span className="inline-block w-2 h-2 rounded-full bg-[#586AE2]" />
+              <span className="inline-block w-2 h-2 rounded-full bg-[#9288ee]" />
+            </div>
+            <div className="flex items-center space-x-1.5">
+              <span className="inline-block w-1 h-1 rounded-full bg-[#999]" />
+              <span className="inline-block w-1 h-1 rounded-full bg-[#999]" />
+              <span className="inline-block w-1 h-1 rounded-full bg-[#999]" />
             </div>
           </div>
-
-          {/* Right Section - Contact Form */}
-          <div className="w-full md:w-[48%] lg:w-[45%] p-6 sm:p-8 md:p-10 bg-[#1111118c] rounded-3xl border border-transparent backdrop-blur-lg">
-            <div className="space-y-6 sm:space-y-8">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 text-center md:text-left">
-                Contact Me
-              </h2>
-              <form onSubmit={onSubmit} className="space-y-6 sm:space-y-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          {/* Body */}
+          <div className="flex flex-col md:flex-row md:items-start">
+            {/* Left */}
+           
+           <div className="flex flex-col px-4 py-8 md:w-2/3 md:px-12 md:py-16 lg:w-1/2 lg:px-16 lg:py-24">
+  <div className="flex flex-col bg-gradient-to-r from-[#586AE2] to-[#C252E1] bg-clip-text text-transparent text-[26px] font-bold relative mb-8">
+    <span>CONTACT</span>
+    <span>ME</span>
+    <span className="absolute left-0 -bottom-2 w-6 h-1 bg-gradient-to-r from-[#586AE2] to-[#C252E1] rounded" />
+  </div>
+  <div className="text-[10px] text-[#888] mb-4">
+    PHONE NUMBER : +30 694 7633 560
+  </div>
+  <div className="text-[10px] text-[#888] mb-4">
+    ADDRESS : LEOFOROS ATHINON 76 LOUTRAKI , GREECE
+  </div>
+  <div className="text-[10px] text-[#888] mb-8">
+    EMAIL : CHRISTOPALEXANDRA@GMAIL.COM
+  </div>
+  <div className="space-y-8">
+    <div className="flex gap-8">
+      <Link
+        href="https://github.com/SandraChristopoulou"
+        className="text-[#888] hover:text-[#ba53e1] transition-all duration-200 transform hover:scale-110"
+      >
+        <AiOutlineGithub size={32} />
+      </Link>
+      <Link
+        href="https://www.linkedin.com/in/alexandra-christopoulou-8ba4052b3/"
+        className="text-[#888] hover:text-[#ba53e1] transition-all duration-200 transform hover:scale-110"
+      >
+        <AiOutlineLinkedin size={32} />
+      </Link>
+    </div>
+  </div>
+</div>
+            
+            {/* Right */}
+            <div className="md:w-1/2 px-8 py-12 md:px-12 md:py-16 lg:px-16 lg:py-24">
+              <form
+                ref={formRef}
+                autoComplete="off"
+                onSubmit={handleSend}
+                className="flex flex-col gap-y-8 md:gap-y-12"
+              >
+                <div>
                   <input
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    className="w-full px-4 py-3 bg-[#74747470] border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ffffff] text-white placeholder-gray-400 transition-all duration-200"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    className="w-full px-4 py-3 bg-[#74747470] border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ffffff] text-white placeholder-gray-400 transition-all duration-200"
+                    className="w-full bg-transparent border-0 border-b border-[#666] text-[#ddd] text-[14px] uppercase py-3 px-0 outline-none focus:border-[#ddd] placeholder:text-[#666] transition-colors"
+                    placeholder="NAME"
+                    name="name"
                     required
                   />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                <div>
                   <input
-                    type="email"
+                    className="w-full bg-transparent border-0 border-b border-[#666] text-[#ddd] text-[14px] uppercase py-3 px-0 outline-none focus:border-[#ddd] placeholder:text-[#666] transition-colors"
+                    placeholder="EMAIL"
                     name="email"
-                    placeholder="Mail"
-                    className="w-full px-4 py-3 bg-[#74747470] border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ffffff] text-white placeholder-gray-400 transition-all duration-200"
-                    required
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone"
-                    className="w-full px-4 py-3 bg-[#74747470] border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ffffff] text-white placeholder-gray-400 transition-all duration-200"
+                    type="email"
                     required
                   />
                 </div>
-                <textarea
-                  name="message"
-                  placeholder="Message"
-                  rows={6}
-                  className="w-full px-4 py-3 bg-[#74747470] border border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-[#ffffff] text-white placeholder-gray-400 transition-all duration-200 resize-none"
-                  required
-                ></textarea>
-                <button
-                  type="submit"
-                  className="w-full sm:w-fit px-6 py-3 bg-[#ffffff] hover:bg-[#c9c9c967] hover:text-white text-black rounded-xl font-semibold transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] shadow-lg"
-                >
-                  Send Message
-                </button>
+                <div>
+                  <input
+                    className="w-full bg-transparent border-0 border-b border-[#666] text-[#ddd] text-[14px] uppercase py-3 px-0 outline-none focus:border-[#ddd] placeholder:text-[#666] transition-colors"
+                    placeholder="PHONE NUMBER"
+                    name="contact"
+                  />
+                </div>
+                <div>
+                  <input
+                    className="w-full bg-transparent border-0 border-b border-[#666] text-[#ddd] text-[14px] uppercase py-3 px-0 outline-none focus:border-[#ddd] placeholder:text-[#666] transition-colors"
+                    placeholder="MESSAGE"
+                    name="message"
+                    required
+                  />
+                </div>
+                <div className="flex justify-start md:justify-end space-x-4 pt-4">
+                  <button
+                    className="bg-transparent border-none bg-gradient-to-r from-[#586AE2] to-[#C252E1] bg-clip-text text-transparent text-[14px] cursor-pointer hover:text-[#ba53e1] transition-colors"
+                    onClick={handleCancel}
+                    type="button"
+                  >
+                    CANCEL
+                  </button>
+                  <button
+                    className="bg-transparent border-none text-[14px] cursor-pointer bg-gradient-to-r from-[#586AE2] to-[#C252E1] bg-clip-text text-transparent hover:text-[#ba53e1] transition-colors"
+                    type="submit"
+                  >
+                    SEND
+                  </button>
+                </div>
               </form>
             </div>
           </div>
-
         </div>
+        {/* Credits */}
       </div>
+      {/* Fonts */}
+      <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Condensed&display=swap"
+        rel="stylesheet"
+      />
+      <style jsx global>{`
+        .font-montserrat {
+          font-family: 'Montserrat', sans-serif;
+        }
+        .font-roboto {
+          font-family: 'Roboto Condensed', sans-serif;
+        }
+        html {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+      `}</style>
     </div>
-  )
+  );
 }
-
-export default ContactForm
-
-
-
