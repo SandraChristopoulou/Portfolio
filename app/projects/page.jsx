@@ -2,7 +2,10 @@
 import React, { useState, useRef } from "react";
 import ProjectCard from "../../components/ProjectCard";
 import { motion, useInView } from "framer-motion";
-import ComingSoonCard from "@/components/ComingSoonCard";
+import 'swiper/css';
+import Marquee from "react-fast-marquee";
+
+
 
 const projectsData = [
   {
@@ -57,56 +60,58 @@ const projectsData = [
 
 const ProjectsSection = () => {
   const [tag, setTag] = useState("All");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
 
   const filteredProjects = projectsData.filter((project) =>
     project.tag.includes(tag)
   );
 
-  const cardVariants = {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-  };
-
   return (
     <section
-      className="min-h-screen w-full scroll-mt-28 backdrop-blur-md bg-black/90 py-12 lg:py-32"
       id="projects"
+      className="w-full flex flex-col items-center justify-center min-h-screen px-4 py-8 sm:px-8 sm:py-12 lg:px-24 lg:py-24 bg-transparent"
     >
-      <h2 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold z mb-8">
+      <h2 className="text-center text-2xl sm:text-3xl md:text-5xl font-bold z mb-8">
         My Projects
       </h2>
+      {/* Marquee for desktop, grid for mobile */}
       <div className="w-full flex justify-center">
-        <motion.ul
-          ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 w-full max-w-7xl mx-auto"
-          initial="initial"
-          animate={isInView ? "animate" : "initial"}
-          variants={{
-            animate: { transition: { staggerChildren: 0.2 } },
-          }}
-        >
-          {filteredProjects.map((project, index) => (
-            <motion.li
-              key={project.id}
-              variants={cardVariants}
-              transition={{ duration: 0.3, delay: index * 0.2 }}
-              layout
-            >
-              {project.id === 5 ? (
-                <ComingSoonCard />
-              ) : (
+        {/* Desktop Marquee */}
+        <div className="hidden sm:block w-full">
+          <Marquee
+            gradient={false}
+            speed={50}
+            pauseOnHover={true}
+            loop={0}
+          >
+            {filteredProjects.map((project) => (
+              <div key={project.id} className="mx-6 w-[300px] md:w-[650px] flex-shrink-0">
                 <ProjectCard
                   title={project.title}
                   description={project.description}
                   imgUrl={project.image}
                   gitUrl={project.gitUrl}
+                  previewUrl={project.previewUrl}
                 />
-              )}
-            </motion.li>
-          ))}
-        </motion.ul>
+              </div>
+            ))}
+          </Marquee>
+        </div>
+        {/* Mobile Grid */}
+        <div className="block sm:hidden w-full">
+          <div className="flex flex-col items-center gap-8 w-full">
+            {filteredProjects.map((project) => (
+              <div key={project.id} className="w-full max-w-xs mx-auto">
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  imgUrl={project.image}
+                  gitUrl={project.gitUrl}
+                  previewUrl={project.previewUrl}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

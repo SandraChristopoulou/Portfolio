@@ -26,10 +26,6 @@ body {
 .font-roboto {
   font-family: 'Roboto Condensed', sans-serif;
 }
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 .bg-gradient-custom {
   background-image: linear-gradient(to right, #0a1a3c, #2e5cff, #e252e1);
 }
