@@ -71,10 +71,10 @@ const ProjectsSection = () => {
 
   return (
     <section
-      className="min-h-screen w-full scroll-mt-28 bg-gradient-to-b from-[#000000] via-[#2A2356] to-[#000000] py-12 lg:py-32"
+      className="min-h-screen w-full scroll-mt-28 backdrop-blur-md bg-black/90 py-12 lg:py-32"
       id="projects"
     >
-      <h2 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8">
+      <h2 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold z mb-8">
         My Projects
       </h2>
       <div className="w-full flex justify-center">

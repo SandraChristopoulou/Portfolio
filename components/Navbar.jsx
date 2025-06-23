@@ -67,7 +67,9 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`fixed left-0 top-0 w-[65%] sm:hidden h-screen bg-[#000000fb] p-10 ease-in duration-300 
+      <div className={`fixed left-0 top-0 w-[65%] sm:hidden h-screen 
+       bg-[#0a1a3c]
+       p-10 ease-in duration-300 
         ${menuOpen ? "translate-x-0" : "-translate-x-full"} z-50`}
       >
         <div className="flex w-full items-center justify-end">

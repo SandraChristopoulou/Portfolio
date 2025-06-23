@@ -26,19 +26,13 @@ export default function ContactPage() {
   return (
     <div
       id="contact"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-8 lg:px-16 py-8 sm:py-12 lg:py-24 font-montserrat font-bold tracking-wider text-[12px]"
-      style={{
-        backgroundImage: "url('/images/bg.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundBlendMode: "overlay",
-      }}
+      className=" min-h-screen flex items-center justify-center px-4 sm:px-8 lg:px-16 py-8 sm:py-12 lg:py-24 font-montserrat font-bold tracking-wider text-[12px]"
+  
     >
       <div className="flex flex-col w-full max-w-3xl lg:max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-12 lg:px-24 lg:py-32">
-        <div className="relative rounded-2xl bg-[#3e3e3e]/80 shadow-2xl overflow-hidden">
+        <div className="relative rounded-2xl bg-[#0a1a3c]/90 backdrop-blur-md shadow-2xl overflow-hidden">
           {/* Header */}
-          <div className="flex items-center px-5 py-2 bg-[#4d4f4f] rounded-t-2xl">
+          <div className="flex items-center px-5 py-2 bg-[#122f6d] rounded-t-2xl">
             <div className="flex items-center mr-auto space-x-1.5">
               <span className="inline-block w-2 h-2 rounded-full bg-[#C252E1]" />
               <span className="inline-block w-2 h-2 rounded-full bg-[#586AE2]" />
@@ -55,10 +49,10 @@ export default function ContactPage() {
             {/* Left */}
            
            <div className="flex flex-col px-4 py-8 md:w-2/3 md:px-12 md:py-16 lg:w-1/2 lg:px-16 lg:py-24">
-  <div className="flex flex-col bg-gradient-to-r from-[#586AE2] to-[#C252E1] bg-clip-text text-transparent text-[26px] font-bold relative mb-8">
+  <div className="flex flex-col bg-gradient-to-r from-[#e252e1] to-[#C252E1] bg-clip-text text-transparent text-[26px] font-bold relative mb-8">
     <span>CONTACT</span>
     <span>ME</span>
-    <span className="absolute left-0 -bottom-2 w-6 h-1 bg-gradient-to-r from-[#586AE2] to-[#C252E1] rounded" />
+    <span className="absolute left-0 -bottom-2 w-6 h-1 bg-[#C252E1] rounded" />
   </div>
   <div className="text-[10px] text-[#888] mb-4">
     PHONE NUMBER : +30 694 7633 560

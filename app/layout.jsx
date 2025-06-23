@@ -28,8 +28,20 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen overflow-x-hidden`}
       >
+        {/* Spline 3D Animation as global background */}
+        <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
+          <iframe
+            src="https://my.spline.design/unchained-PtKqeATKUjl0VBQGbPKKuC0i/"
+            frameBorder="0"
+            width="100%"
+            height="100%"
+            className="w-full h-full"
+            allow="autoplay; fullscreen"
+          ></iframe>
+        </div>
+        {/* Main content above the animation */}
         <Navbar />
-        <div className="flex-grow">{children}</div>
+        <div className="flex-grow relative z-10">{children}</div>
         <Footer />
       </body>
     </html>

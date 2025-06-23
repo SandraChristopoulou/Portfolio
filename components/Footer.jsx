@@ -12,7 +12,7 @@ const footerlink = [
 ]
 export const Footer = () => {
   return (
-  <footer className="relative  overflow-x-clip w-full">
+  <footer className=" bg-gradient-to-r from-[#0a1a3c] via-[#2e5cff] to-[#e252e1]  relative  overflow-x-clip w-full">
     <div className=" bg-[#000000] -z-10" ></div>
     <div className='container mx-auto'>
       <div className=" border-white/15 py-6 md text-sm flex flex-col items-center gap-8 ">

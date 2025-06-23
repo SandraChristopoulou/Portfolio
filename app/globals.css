@@ -30,3 +30,12 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.bg-gradient-custom {
+  background-image: linear-gradient(to right, #0a1a3c, #2e5cff, #e252e1);
+}
+/* Only show gradient background on mobile (below 640px) */
+@media (max-width: 639px) {
+  .bg-gradient-mobile {
+    background-image: linear-gradient(to right, #0a1a3c, #2e5cff, #e252e1);
+  }
+}
