@@ -68,48 +68,52 @@ const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="w-full flex flex-col items-center justify-center min-h-screen px-4 py-8 sm:px-8 sm:py-12 lg:px-24 lg:py-24 bg-transparent"
+      className="page-container"
     >
-      <h2 className="text-center text-2xl sm:text-3xl md:text-5xl font-bold z mb-8">
-        My Projects
-      </h2>
-      {/* Marquee for desktop, grid for mobile */}
-      <div className="w-full flex justify-center">
-        {/* Desktop Marquee */}
-        <div className="hidden sm:block w-full">
-          <Marquee
-            gradient={false}
-            speed={50}
-            pauseOnHover={true}
-            loop={0}
-          >
-            {filteredProjects.map((project) => (
-              <div key={project.id} className="mx-6 w-[300px] md:w-[650px] flex-shrink-0">
-                <ProjectCard
-                  title={project.title}
-                  description={project.description}
-                  imgUrl={project.image}
-                  gitUrl={project.gitUrl}
-                  previewUrl={project.previewUrl}
-                />
-              </div>
-            ))}
-          </Marquee>
-        </div>
-        {/* Mobile Grid */}
-        <div className="block sm:hidden w-full">
-          <div className="flex flex-col items-center gap-8 w-full">
-            {filteredProjects.map((project) => (
-              <div key={project.id} className="w-full max-w-xs mx-auto">
-                <ProjectCard
-                  title={project.title}
-                  description={project.description}
-                  imgUrl={project.image}
-                  gitUrl={project.gitUrl}
-                  previewUrl={project.previewUrl}
-                />
-              </div>
-            ))}
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <h2 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12">
+          My Projects
+        </h2>
+        
+        {/* Marquee for desktop, grid for mobile */}
+        <div className="w-full flex justify-center">
+          {/* Desktop Marquee */}
+          <div className="hidden md:block w-full">
+            <Marquee
+              gradient={false}
+              speed={50}
+              pauseOnHover={true}
+              loop={0}
+            >
+              {filteredProjects.map((project) => (
+                <div key={project.id} className="mx-4 lg:mx-6 w-[320px] md:w-[380px] lg:w-[420px] xl:w-[480px] 2xl:w-[520px] flex-shrink-0">
+                  <ProjectCard
+                    title={project.title}
+                    description={project.description}
+                    imgUrl={project.image}
+                    gitUrl={project.gitUrl}
+                    previewUrl={project.previewUrl}
+                  />
+                </div>
+              ))}
+            </Marquee>
+          </div>
+          
+          {/* Mobile and Tablet Grid */}
+          <div className="block md:hidden w-full max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+              {filteredProjects.map((project) => (
+                <div key={project.id} className="w-full mx-auto">
+                  <ProjectCard
+                    title={project.title}
+                    description={project.description}
+                    imgUrl={project.image}
+                    gitUrl={project.gitUrl}
+                    previewUrl={project.previewUrl}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
