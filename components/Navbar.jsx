@@ -26,25 +26,63 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle smooth scrolling with navbar offset
+  // Handle smooth scrolling with content-aware centering
   const handleScroll = (e, targetId) => {
     e.preventDefault();
     setMenuOpen(false);
     
-    // Use a more reliable scrolling method
+    // Content-aware centering approach
     setTimeout(() => {
       const target = document.getElementById(targetId);
       if (target) {
-        const navbarHeight = window.innerWidth >= 640 ? 80 : 64; // Responsive navbar height
-        const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navbarHeight;
+        const navbarHeight = window.innerWidth >= 640 ? 80 : 64;
+        const viewportHeight = window.innerHeight;
+        const isMobile = window.innerWidth < 640;
+        
+        // Find the main content within the section
+        let contentElement = target;
+        
+        // Look for specific content containers
+        if (targetId === "projects") {
+          const projectsTitle = target.querySelector('h2');
+          const projectsGrid = target.querySelector('.block, .hidden');
+          contentElement = projectsTitle || projectsGrid || target;
+        } else if (targetId === "about") {
+          const aboutCard = target.querySelector('.backdrop-blur-xl, .bg-transparent');
+          contentElement = aboutCard || target;
+        } else if (targetId === "contact") {
+          const contactForm = target.querySelector('.rounded-xl, .backdrop-blur-xl');
+          contentElement = contactForm || target;
+        }
+        
+        // Get positions
+        const contentRect = contentElement.getBoundingClientRect();
+        const contentTop = contentRect.top + window.pageYOffset;
+        const contentHeight = contentRect.height;
+        
+        // Calculate centering with section-specific adjustments
+        let scrollPosition;
+        
+        if (targetId === "projects") {
+          // For projects, show title and some content
+          scrollPosition = contentTop - navbarHeight - (isMobile ? 20 : 150);
+        } else if (targetId === "about") {
+          // For about, use similar approach as projects
+          scrollPosition = contentTop - navbarHeight - (isMobile ? 30 : 40);
+        } else if (targetId === "contact") {
+          // For contact, use similar approach as projects
+          scrollPosition = contentTop - navbarHeight - (isMobile ? 25 : 100);
+        } else {
+          // Default
+          scrollPosition = contentTop - navbarHeight - 100;
+        }
 
         window.scrollTo({
-          top: offsetPosition,
+          top: Math.max(0, scrollPosition),
           behavior: "smooth"
         });
       }
-    }, menuOpen ? 300 : 50); // Longer delay if menu is open
+    }, menuOpen ? 600 : 200);
   };
   
   return (

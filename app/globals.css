@@ -16,13 +16,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* Account for fixed navbar */
-}
-
-@media (min-width: 640px) {
-  html {
-    scroll-padding-top: 5rem;
-  }
 }
 
 body {
@@ -149,4 +142,9 @@ button:focus-visible {
 /* Improve scroll performance */
 * {
   -webkit-overflow-scrolling: touch;
+}
+
+/* Perfect centering for navigation sections */
+#about, #projects, #contact {
+  scroll-margin: 0;
 }
