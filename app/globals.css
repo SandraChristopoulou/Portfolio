@@ -18,6 +18,19 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Montserrat', sans-serif; 
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Ensure only the main body scrolls */
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+
+#__next {
+  height: 100%;
 }
 
 .font-montserrat {
@@ -76,6 +89,16 @@ button, a, input, .hover-element {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+/* Prevent any element from creating additional scrollbars */
+* {
+  max-width: 100%;
+}
+
+/* Ensure containers don't overflow */
+div, section, main, header, footer, nav {
+  overflow-x: visible;
 }
 
 /* Container max-width constraints for better responsive design */
@@ -142,8 +165,9 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Remove overflow scrolling from all elements to prevent double scroll */
 * {
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: auto;
 }
 
 /* Marquee overflow fix for projects */
@@ -183,7 +207,7 @@ html {
   }
 }
 
-/* Ensure marquee content doesn't get cut off */
+/* Ensure marquee content doesn't get cut off or create scrollbars */
 .rfm-marquee {
   overflow: visible !important;
   padding: 80px 0 !important; /* Extra padding για vertical glow */
@@ -399,70 +423,70 @@ html {
   }
   
   .card .face {
-    width: 340px; /* Μεγαλύτερο για tablet */
-    height: 255px;
+    width: 360px; /* Μεγαλύτερο για tablet */
+    height: 275px;
   }
   
   .card .face.face1 .content h3 {
-    font-size: 0.95em; /* Λίγο μεγαλύτερο font για tablet */
+    font-size: 1em; /* Λίγο μεγαλύτερο font για tablet */
   }
   
   .card .face.face2 .content p,
   .card .face.face2 .content a {
-    font-size: 9.5pt; /* Λίγο μεγαλύτερο font για tablet */
+    font-size: 10pt; /* Λίγο μεγαλύτερο font για tablet */
   }
 }
 
 @media (max-width: 640px) {
   .card {
-    margin: 20px; /* Κανονικό margin για mobile */
+    margin: 15px; /* Μεσαίο margin για mobile με μόνιμο drawer */
   }
   
   .card .face {
-    width: 320px; /* Μεγαλύτερο για mobile */
-    height: 240px;
+    width: 380px; /* Μεγαλύτερο για mobile */
+    height: 285px;
   }
   
   .card .face.face1 .content h3 {
-    font-size: 0.9em; /* Μεγαλύτερο font για mobile */
+    font-size: 1em; /* Μεγαλύτερο font για mobile */
   }
   
   .card .face.face2 .content p,
   .card .face.face2 .content a {
-    font-size: 9pt; /* Μεγαλύτερο font για mobile */
+    font-size: 10pt; /* Μεγαλύτερο font για mobile */
   }
   
   .card .face.face2 {
-    padding: 18px; /* Περισσότερο padding για mobile */
+    padding: 20px; /* Περισσότερο padding για mobile */
   }
 }
 
 @media (max-width: 480px) {
   .card {
-    margin: 15px; /* Μικρό margin για πολύ μικρές οθόνες */
+    margin: 12px; /* Λίγο περισσότερο margin για πολύ μικρές οθόνες με μόνιμο drawer */
   }
   
   .card .face {
-    width: 300px; /* Μεγαλύτερο για small mobile */
-    height: 220px;
+    width: 350px; /* Μεγαλύτερο για small mobile */
+    height: 260px;
   }
   
   .card .face.face1 .content h3 {
-    font-size: 0.85em; /* Μεγαλύτερο font */
+    font-size: 0.95em; /* Μεγαλύτερο font */
   }
   
   .card .face.face2 .content p,
   .card .face.face2 .content a {
-    font-size: 8.5pt; /* Μεγαλύτερο font */
+    font-size: 9.5pt; /* Μεγαλύτερο font */
   }
   
   .card .face.face2 {
-    padding: 15px;
+    padding: 18px;
   }
   
   .card .face.face2 .content a {
-    padding: 10px; /* Μεγαλύτερο padding για κουμπί */
-    margin: 12px 0 0;
+    padding: 12px; /* Μεγαλύτερο padding για κουμπί */
+    margin: 15px 0 0;
   }
 }
 
@@ -507,7 +531,7 @@ html {
 @media (max-width: 640px) {
   .projects-grid,
   .marquee-content {
-    padding: 35px 10px; /* Προσαρμοσμένο για mobile */
+    padding: 30px 12px; /* Προσαρμοσμένο για mobile με μόνιμο drawer */
   }
   
   .rfm-marquee,
@@ -535,4 +559,114 @@ html {
 
 #projects .page-container {
   overflow: visible !important;
+}
+
+/* Mobile drawer permanent visibility - no conditional styles needed */
+/* Card spacing already optimized for permanent drawer on mobile */
+
+/* Mobile-specific card behavior - drawer always open */
+@media (max-width: 640px) {
+  .card .face.face2 {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  }
+  
+  .card .face.face1 {
+    transform: translateY(0) !important;
+    position: relative !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* Stack both faces vertically on mobile */
+  .card {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+  }
+  
+  .card .face {
+    width: 380px;
+    height: auto;
+    min-height: 200px;
+  }
+  
+  .card .face.face1 {
+    height: 250px;
+  }
+  
+  .card .face.face2 {
+    height: auto;
+    min-height: 120px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card .face {
+    width: 350px;
+  }
+  
+  .card .face.face1 {
+    height: 220px;
+  }
+  
+  .card {
+    margin: 12px;
+  }
+}
+
+/* SCROLL BEHAVIOR FIXES - Prevent double scrollbars */
+/* Ensure only one scrollbar exists */
+html, body {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(46, 92, 255, 0.6) transparent;
+}
+
+/* Webkit scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(46, 92, 255, 0.6), rgba(226, 82, 225, 0.6));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgba(46, 92, 255, 0.8), rgba(226, 82, 225, 0.8));
+}
+
+/* Prevent horizontal scroll completely */
+body {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+}
+
+/* Ensure main content doesn't create additional scroll */
+main {
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+/* Fix for iframes not creating scroll */
+iframe {
+  overflow: hidden;
+}
+
+/* Gradient text on hover utility */
+.hover-gradient-text:hover {
+  background: linear-gradient(90deg, #0a1a3c 0%, #2e5cff 50%, #e252e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transition: background 0.5s, color 0.5s;
 }

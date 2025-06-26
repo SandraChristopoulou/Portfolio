@@ -23,9 +23,9 @@ export const Footer = () => {
         {footerlink.map(link => ( 
         
             <a href={link.href} key={link.title} className="inline-flex items-center gap-1.5 text-white/90 transition-all duration-300 group">
-            <span className="font-semibold group-hover:bg-gradient-to-r group-hover:from-[#0a1a3c] group-hover:via-[#2e5cff] group-hover:to-[#e252e1] group-hover:bg-clip-text group-hover:text-transparent">{link.title}</span>
-           <ArrowUpRightIcon className="size-3 sm:size-4 text-white" />
-           </a>
+              <span className="font-semibold hover-gradient-text">{link.title}</span>
+              <ArrowUpRightIcon className="size-3 sm:size-4 text-white" />
+            </a>
           
           ))}
         </nav>

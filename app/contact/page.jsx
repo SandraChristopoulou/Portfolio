@@ -74,13 +74,13 @@ export default function ContactPage() {
                   <div className="flex gap-6 sm:gap-8">
                     <Link
                       href="https://github.com/SandraChristopoulou"
-                      className="text-[#2e5cff] hover:text-[#e252e1] transition-all duration-200 transform hover:scale-110 drop-shadow-[0_0_8px_rgba(46,92,255,0.8)]"
+                      className="hover-gradient-text transition-all duration-200 transform hover:scale-110 drop-shadow-[0_0_8px_rgba(46,92,255,0.8)]"
                     >
                       <AiOutlineGithub size={28} className="sm:w-8 sm:h-8" />
                     </Link>
                     <Link
                       href="https://www.linkedin.com/in/alexandra-christopoulou-8ba4052b3/"
-                      className="text-[#2e5cff] hover:text-[#e252e1] transition-all duration-200 transform hover:scale-110 drop-shadow-[0_0_8px_rgba(46,92,255,0.8)]"
+                      className="hover-gradient-text transition-all duration-200 transform hover:scale-110 drop-shadow-[0_0_8px_rgba(46,92,255,0.8)]"
                     >
                       <AiOutlineLinkedin size={28} className="sm:w-8 sm:h-8" />
                     </Link>
@@ -129,14 +129,14 @@ export default function ContactPage() {
                   </div>
                   <div className="flex justify-start lg:justify-end space-x-4 pt-2 sm:pt-4">
                     <button
-                      className="bg-transparent border-none text-white text-xs sm:text-sm md:text-base cursor-pointer hover:text-cyan-300 transition-all duration-300"
+                      className="bg-transparent border-none text-white text-xs sm:text-sm md:text-base cursor-pointer hover-gradient-text transition-all duration-300"
                       onClick={handleCancel}
                       type="button"
                     >
                       CANCEL
                     </button>
                     <button
-                      className="border-none text-xs sm:text-sm md:text-base cursor-pointer text-white hover:text-cyan-300 transition-all duration-300"
+                      className="border-none text-xs sm:text-sm md:text-base cursor-pointer text-white hover-gradient-text transition-all duration-300"
                       type="submit"
                     >
                       SEND

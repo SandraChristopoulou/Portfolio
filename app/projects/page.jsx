@@ -44,7 +44,7 @@ const projectsData = [
     id: 5,
     title: "Breathe Pilates Booking App",
     description: "Α PWA & NEXT JS",
-    image: "/images/weather-app.png",
+    image: "/images/breathe-pilates.png",
     tag: ["All", "Web"],
     gitUrl: "/",
   },
@@ -107,7 +107,7 @@ const ProjectsSection = () => {
           {/* Mobile and Tablet Grid */}
           <div className="block md:hidden w-full px-4 sm:px-6">
             <div className="max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 justify-items-center">
                 {filteredProjects.map((project) => (
                   <div key={project.id} className="flex justify-center">
                     <ProjectCard

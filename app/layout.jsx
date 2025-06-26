@@ -17,9 +17,10 @@ export default function RootLayout({ children }) {
       </head>
       <body
         className="antialiased flex flex-col min-h-screen overflow-x-hidden font-sans"
+        style={{ overflow: 'auto' }}
       >
         {/* Spline 3D Animation as global background */}
-        <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
+        <div className="fixed inset-0 w-full h-full z-0 pointer-events-none" style={{ overflow: 'hidden' }}>
           <iframe
             src="https://my.spline.design/unchained-PtKqeATKUjl0VBQGbPKKuC0i/"
             frameBorder="0"
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
             height="100%"
             className="w-full h-full"
             allow="autoplay; fullscreen"
+            style={{ overflow: 'hidden' }}
           ></iframe>
         </div>
         {/* Main content above the animation */}

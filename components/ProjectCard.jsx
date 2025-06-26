@@ -28,9 +28,9 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl }) => {
             href={gitUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="no-underline text-black box-border border border-dashed border-[#333] p-2.5 mt-4 inline-block transition-all duration-300 hover:bg-[#333] hover:text-[whitesmoke] hover:shadow-inset text-[10pt]"
+            className="no-underline text-black box-border border border-dashed border-[#333] p-2.5 mt-4 inline-block transition-all duration-300 hover:bg-[#333] hover-gradient-text hover:shadow-inset text-[10pt]"
           >
-            Read More
+            Git Hub Repository
           </Link>
         </div>
       </div>

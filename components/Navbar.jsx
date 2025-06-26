@@ -57,13 +57,13 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden sm:flex">
           <li className=" ml-6 lg:ml-10 font-extrabold text-base lg:text-xl cursor-pointer">
-            <button onClick={(e) => handleSmoothScroll(e, "projects")} className="text-white hover:text-[#e252e1] transition-colors mobile-touch">My Projects</button>
+            <button onClick={(e) => handleSmoothScroll(e, "projects")} className="text-white hover-gradient-text transition-colors mobile-touch">My Projects</button>
           </li>
           <li className="text-white ml-6 lg:ml-10 font-extrabold text-base lg:text-xl cursor-pointer">
-            <button onClick={(e) => handleSmoothScroll(e, "about")} className="hover:text-[#e252e1] transition-colors mobile-touch">About Me</button>
+            <button onClick={(e) => handleSmoothScroll(e, "about")} className="hover-gradient-text transition-colors mobile-touch">About Me</button>
           </li>
           <li className="ml-6 lg:ml-10 font-extrabold text-base lg:text-xl cursor-pointer">
-            <button onClick={(e) => handleSmoothScroll(e, "contact")} className="text-white hover:text-[#e252e1] transition-colors mobile-touch">Contact Me</button>        
+            <button onClick={(e) => handleSmoothScroll(e, "contact")} className="text-white hover-gradient-text transition-colors mobile-touch">Contact Me</button>        
           </li>
         </ul>
 
@@ -89,18 +89,18 @@ const Navbar = () => {
 
         <div className="flex flex-col text-white h-full justify-center items-center -mt-16">
           <ul className="space-y-8 text-center">
-            <li><button onClick={(e) => handleSmoothScroll(e, "projects")} className="py-3 text-2xl font-semibold hover:text-[#e252e1] transition-colors mobile-touch w-full text-center">My Projects</button></li>
-            <li><button onClick={(e) => handleSmoothScroll(e, "about")} className="py-3 text-2xl font-semibold hover:text-[#e252e1] transition-colors mobile-touch w-full text-center">About Me</button></li>
-            <li><button onClick={(e) => handleSmoothScroll(e, "contact")} className="py-3 text-2xl font-semibold hover:text-[#e252e1] transition-colors mobile-touch w-full text-center">Contact Me</button></li>
+            <li><button onClick={(e) => handleSmoothScroll(e, "projects")} className="py-3 text-2xl font-semibold hover-gradient-text transition-colors mobile-touch w-full text-center">My Projects</button></li>
+            <li><button onClick={(e) => handleSmoothScroll(e, "about")} className="py-3 text-2xl font-semibold hover-gradient-text transition-colors mobile-touch w-full text-center">About Me</button></li>
+            <li><button onClick={(e) => handleSmoothScroll(e, "contact")} className="py-3 text-2xl font-semibold hover-gradient-text transition-colors mobile-touch w-full text-center">Contact Me</button></li>
           </ul>
 
           {/* Social Icons */}
           <div className="text-white flex flex-row justify-center gap-8 pt-16 items-center">
             <Link href="https://github.com/SandraChristopoulou" onClick={() => setMenuOpen(false)}>
-              <AiOutlineGithub size={32} className="cursor-pointer hover:text-[#e252e1] transition-colors" />
+              <AiOutlineGithub size={32} className="cursor-pointer hover-gradient-text transition-colors" />
             </Link>
             <Link href="https://www.linkedin.com/in/alexandra-christopoulou-8ba4052b3/" onClick={() => setMenuOpen(false)}>
-              <AiOutlineLinkedin size={32} className="cursor-pointer hover:text-[#e252e1] transition-colors" />
+              <AiOutlineLinkedin size={32} className="cursor-pointer hover-gradient-text transition-colors" />
             </Link>
           </div>
         </div>
