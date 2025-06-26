@@ -1,18 +1,7 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Sandra's Portfolio",
@@ -27,7 +16,7 @@ export default function RootLayout({ children }) {
         {/* You can add other <meta> or <link> tags here */}
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen overflow-x-hidden`}
+        className="antialiased flex flex-col min-h-screen overflow-x-hidden font-sans"
       >
         {/* Spline 3D Animation as global background */}
         <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
