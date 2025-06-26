@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         {/* You can add other <meta> or <link> tags here */}
       </head>
       <body
@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
         </div>
         {/* Main content above the animation */}
         <Navbar />
-        <div className="flex-grow relative z-10">{children}</div>
+        <main className="flex-grow relative z-10">{children}</main>
         <Footer />
       </body>
     </html>

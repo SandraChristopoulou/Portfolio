@@ -14,10 +14,14 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
- font-family: 'Montserrat', sans-serif; 
+  font-family: 'Montserrat', sans-serif; 
 }
 
 .font-montserrat {
@@ -34,4 +38,113 @@ body {
   .bg-gradient-mobile {
     background-image: linear-gradient(to right, #0a1a3c, #2e5cff, #e252e1);
   }
+}
+
+/* Page container for consistent spacing and centering */
+.page-container {
+  min-height: 100vh;
+  padding: 6rem 0.75rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Responsive spacing utilities */
+@media (min-width: 640px) {
+  .page-container {
+    padding: 6rem 1rem 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding: 8rem 2rem 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    padding: 10rem 3rem 5rem;
+  }
+}
+
+/* Smooth transitions for interactive elements only */
+button, a, input, .hover-element {
+  transition: all 0.3s ease;
+}
+
+/* Ensure proper box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Container max-width constraints for better responsive design */
+.content-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .content-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-container {
+    padding: 0 3rem;
+  }
+}
+
+/* Smooth scroll utilities */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Better responsive text scaling */
+.text-responsive {
+  font-size: clamp(0.875rem, 2.5vw, 1.125rem);
+}
+
+.text-responsive-lg {
+  font-size: clamp(1.125rem, 3vw, 1.5rem);
+}
+
+.text-responsive-xl {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.text-responsive-2xl {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+/* Enhanced mobile interactions */
+@media (max-width: 639px) {
+  .mobile-touch {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    touch-action: manipulation;
+  }
+}
+
+/* Better focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #e252e1;
+  outline-offset: 2px;
+}
+
+/* Improve scroll performance */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Perfect centering for navigation sections */
+#about, #projects, #contact {
+  scroll-margin: 0;
 }
