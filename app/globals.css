@@ -14,10 +14,6 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
@@ -43,7 +39,7 @@ body {
 /* Page container for consistent spacing and centering */
 .page-container {
   min-height: 100vh;
-  padding: 6rem 0.75rem 4rem;
+  padding: 5rem 0.75rem 4rem; /* Μειωμένο top padding */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,19 +50,19 @@ body {
 /* Responsive spacing utilities */
 @media (min-width: 640px) {
   .page-container {
-    padding: 6rem 1rem 3rem;
+    padding: 5rem 1rem 3rem; /* Μειωμένο top padding */
   }
 }
 
 @media (min-width: 768px) {
   .page-container {
-    padding: 8rem 2rem 4rem;
+    padding: 6rem 2rem 4rem; /* Μειωμένο top padding */
   }
 }
 
 @media (min-width: 1024px) {
   .page-container {
-    padding: 10rem 3rem 5rem;
+    padding: 7rem 3rem 5rem; /* Μειωμένο top padding */
   }
 }
 
@@ -102,10 +98,7 @@ button, a, input, .hover-element {
   }
 }
 
-/* Smooth scroll utilities */
-.scroll-smooth {
-  scroll-behavior: smooth;
-}
+
 
 /* Better responsive text scaling */
 .text-responsive {
@@ -139,12 +132,407 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* Improve scroll performance */
+/* Ensure sections are properly positioned for centering */
+.content-container {
+  position: relative;
+}
+
+/* Enhanced scroll performance */
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
 * {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Perfect centering for navigation sections */
-#about, #projects, #contact {
-  scroll-margin: 0;
+/* Marquee overflow fix for projects */
+.marquee-container {
+  overflow: visible !important;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 100px 0; /* Desktop padding */
+}
+
+/* Responsive marquee container */
+@media (max-width: 1024px) {
+  .marquee-container {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-container {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .marquee-container {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-container {
+    padding: 40px 0;
+  }
+}
+
+/* Ensure marquee content doesn't get cut off */
+.rfm-marquee {
+  overflow: visible !important;
+  padding: 80px 0 !important; /* Extra padding για vertical glow */
+}
+
+.rfm-marquee-container {
+  overflow: visible !important;
+  padding: 80px 0 !important; /* Extra padding για vertical glow */
+}
+
+/* Neon glow effects with custom gradient */
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(10, 26, 60, 0.5),
+                0 0 40px rgba(46, 92, 255, 0.3),
+                0 0 60px rgba(226, 82, 225, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(10, 26, 60, 0.8),
+                0 0 60px rgba(46, 92, 255, 0.6),
+                0 0 90px rgba(226, 82, 225, 0.4);
+  }
+}
+
+@keyframes neon-border {
+  0%, 100% {
+    border-color: rgba(46, 92, 255, 0.8);
+  }
+  50% {
+    border-color: rgba(226, 82, 225, 1);
+  }
+}
+
+.neon-glow {
+  animation: neon-pulse 3s ease-in-out infinite;
+}
+
+.neon-border {
+  animation: neon-border 2s ease-in-out infinite;
+}
+
+/* White neon text effects */
+.text-neon-white {
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+               0 0 20px rgba(255, 255, 255, 0.6),
+               0 0 30px rgba(255, 255, 255, 0.4),
+               0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.text-neon-white-strong {
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 1),
+               0 0 10px rgba(255, 255, 255, 1),
+               0 0 20px rgba(255, 255, 255, 0.9),
+               0 0 30px rgba(255, 255, 255, 0.8),
+               0 0 40px rgba(46, 92, 255, 0.3),
+               0 0 50px rgba(46, 92, 255, 0.2);
+}
+
+/* Card Effect από CodePen - EXACT COPY */
+.card {
+  position: relative;
+  margin: 60px; /* Desktop margin */
+}
+
+.card .face {
+  width: 400px;
+  height: 300px;
+  transition: 0.4s;
+}
+
+.card .face.face1 {
+  position: relative;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.card:hover .face.face1 {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 0 60px whitesmoke,
+    inset 20px 0 80px #2e5cff,
+    inset -20px 0 80px #e252e1,
+    inset 20px 0 300px #2e5cff,
+    inset -20px 0 300px #e252e1,
+    0 0 50px #fff,
+    -10px 0 80px #2e5cff,
+    10px 0 80px #e252e1;
+}
+
+.card .face.face1 .content {
+  opacity: 0.2;
+  transition: 0.5s;
+  text-align: center;
+}
+
+.card:hover .face.face1 .content {
+  opacity: 1;
+}
+
+.card .face.face1 .content i {
+  font-size: 3em;
+  color: white;
+  display: inline-block;
+}
+
+.card .face.face1 .content h3 {
+  font-size: 1em;
+  color: white;
+  text-align: center;
+}
+
+.card .face.face1 .content a {
+  transition: 0.5s;
+}
+
+.card .face.face2 {
+  position: relative;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card:hover .face.face2 {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.card .face.face2 .content p, 
+.card .face.face2 .content a {
+  font-size: 10pt;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.card .face.face2 .content a {
+  text-decoration: none;
+  color: #fff;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px dashed #fff;
+  padding: 10px;
+  margin: 15px 0 0;
+  display: inline-block;
+}
+
+.card .face.face2 .content a:focus,
+.card .face.face2 .content a:hover,
+.card .face.face2 .content a:active {
+  outline: none;
+}
+
+.card .face.face2 .content a:hover {
+  background: #fff;
+  color: #333;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+  outline: none;
+  border: 1px dashed #333;
+}
+
+.card .face.face2 .content a:focus {
+  outline: none;
+}
+
+/* Αφαίρεση outline από όλα τα στοιχεία των cards */
+.card *,
+.card *:focus,
+.card *:hover,
+.card *:active {
+  outline: none !important;
+}
+
+.card .face.face1 {
+  outline: none !important;
+}
+
+.card .face.face1 *,
+.card .face.face1 *:focus,
+.card .face.face1 *:hover {
+  outline: none !important;
+}
+
+/* Responsive adjustments για cards */
+@media (max-width: 1024px) {
+  .card {
+    margin: 40px; /* Μικρότερο margin για laptop */
+  }
+  
+  .card .face {
+    width: 360px;
+    height: 270px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin: 25px; /* Προσαρμοσμένο margin για tablet */
+  }
+  
+  .card .face {
+    width: 340px; /* Μεγαλύτερο για tablet */
+    height: 255px;
+  }
+  
+  .card .face.face1 .content h3 {
+    font-size: 0.95em; /* Λίγο μεγαλύτερο font για tablet */
+  }
+  
+  .card .face.face2 .content p,
+  .card .face.face2 .content a {
+    font-size: 9.5pt; /* Λίγο μεγαλύτερο font για tablet */
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    margin: 20px; /* Κανονικό margin για mobile */
+  }
+  
+  .card .face {
+    width: 320px; /* Μεγαλύτερο για mobile */
+    height: 240px;
+  }
+  
+  .card .face.face1 .content h3 {
+    font-size: 0.9em; /* Μεγαλύτερο font για mobile */
+  }
+  
+  .card .face.face2 .content p,
+  .card .face.face2 .content a {
+    font-size: 9pt; /* Μεγαλύτερο font για mobile */
+  }
+  
+  .card .face.face2 {
+    padding: 18px; /* Περισσότερο padding για mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    margin: 15px; /* Μικρό margin για πολύ μικρές οθόνες */
+  }
+  
+  .card .face {
+    width: 300px; /* Μεγαλύτερο για small mobile */
+    height: 220px;
+  }
+  
+  .card .face.face1 .content h3 {
+    font-size: 0.85em; /* Μεγαλύτερο font */
+  }
+  
+  .card .face.face2 .content p,
+  .card .face.face2 .content a {
+    font-size: 8.5pt; /* Μεγαλύτερο font */
+  }
+  
+  .card .face.face2 {
+    padding: 15px;
+  }
+  
+  .card .face.face2 .content a {
+    padding: 10px; /* Μεγαλύτερο padding για κουμπί */
+    margin: 12px 0 0;
+  }
+}
+
+/* Διασφάλιση ότι το neon glow δεν κόβεται */
+.projects-grid,
+.marquee-content {
+  overflow: visible !important;
+  padding: 80px 20px; /* Extra padding για το glow effect στο desktop */
+}
+
+.rfm-marquee,
+.rfm-marquee-container {
+  overflow: visible !important;
+  padding: 60px 0; /* Vertical padding για το glow στο desktop */
+}
+
+/* Responsive padding για containers */
+@media (max-width: 1024px) {
+  .projects-grid,
+  .marquee-content {
+    padding: 60px 15px;
+  }
+  
+  .rfm-marquee,
+  .rfm-marquee-container {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid,
+  .marquee-content {
+    padding: 45px 12px; /* Προσαρμοσμένο για τα μεγαλύτερα cards */
+  }
+  
+  .rfm-marquee,
+  .rfm-marquee-container {
+    padding: 35px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-grid,
+  .marquee-content {
+    padding: 35px 10px; /* Προσαρμοσμένο για mobile */
+  }
+  
+  .rfm-marquee,
+  .rfm-marquee-container {
+    padding: 25px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid,
+  .marquee-content {
+    padding: 25px 8px; /* Μικρότερο padding για small mobile */
+  }
+  
+  .rfm-marquee,
+  .rfm-marquee-container {
+    padding: 20px 0;
+  }
+}
+
+/* Ειδικά για το projects section - αποφυγή κοψίματος του glow */
+#projects {
+  overflow: visible !important;
+}
+
+#projects .page-container {
+  overflow: visible !important;
 }

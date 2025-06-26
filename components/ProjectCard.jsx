@@ -1,33 +1,38 @@
 import React from "react";
-import { CodeBracketIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const ProjectCard = ({ imgUrl, title, description, gitUrl }) => {
   return (
-    <div className="w-full h-full flex flex-col rounded-2xl overflow-hidden shadow-lg relative group bg-[#0a1a3c]/90 backdrop-blur-md">
-      {/* Image */}
-      <div
-        className="h-40 sm:h-48 md:h-52 lg:h-56 xl:h-64 w-full bg-cover bg-center"
+    <div className="card relative">
+      {/* Face 1 - Front face with background image */}
+      <div 
+        className="face face1 relative bg-[#333] flex justify-center items-center z-10"
         style={{
           backgroundImage: `url(${imgUrl})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
         }}
-      />
-      {/* Text below image with background */}
-      <div className="flex flex-col items-center justify-center p-4 sm:p-5 md:p-6 bg-gradient-to-r from-[#0a1a3c] via-[#2e5cff] to-[#e252e1] backdrop-blur rounded-b-2xl flex-grow">
-        <h5 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 text-center px-2 leading-tight">{title}</h5>
-        <p className="text-[#ADB7BE] text-center text-sm sm:text-base px-2 leading-relaxed">{description}</p>
+      >
+        <div className="content opacity-20 transition-all duration-500 text-center">
+          <h3 className="text-white text-base text-center font-normal">{title}</h3>
+        </div>
       </div>
-      {/* Hover Overlay with GitHub Link */}
-      <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
-        <Link
-          href={gitUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-white/10 hover:bg-white/20 rounded-full border border-[#ADB7BE] hover:border-white transition text-sm sm:text-base"
-        >
-          <CodeBracketIcon className="h-5 w-5 sm:h-6 sm:w-6 text-[#ADB7BE] group-hover:text-white" />
-          <span className="text-white font-medium">View on GitHub</span>
-        </Link>
+
+      {/* Face 2 - Back face with description and button */}
+      <div className="face face2 relative bg-[whitesmoke] flex items-center justify-center p-5 box-border">
+        <div className="content">
+          <p className="text-[#333] text-[10pt] m-0 p-0">
+            {description}
+          </p>
+          <Link
+            href={gitUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="no-underline text-black box-border border border-dashed border-[#333] p-2.5 mt-4 inline-block transition-all duration-300 hover:bg-[#333] hover:text-[whitesmoke] hover:shadow-inset text-[10pt]"
+          >
+            Read More
+          </Link>
+        </div>
       </div>
     </div>
   );

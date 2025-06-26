@@ -70,23 +70,28 @@ const ProjectsSection = () => {
       id="projects"
       className="page-container"
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12">
-          My Projects
-        </h2>
+      <div className="w-full max-w-none px-0">
+        <div className="px-4 sm:px-6 lg:px-8 mb-4 md:mb-8">
+          <h2 className="text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-white bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(46,92,255,1)]">
+            My Projects
+          </h2>
+        </div>
         
         {/* Marquee for desktop, grid for mobile */}
-        <div className="w-full flex justify-center">
-          {/* Desktop Marquee */}
-          <div className="hidden md:block w-full">
+        <div className="w-full">
+          {/* Desktop Marquee - Full width overflow */}
+          <div className="hidden md:block marquee-container">
             <Marquee
-              gradient={false}
-              speed={50}
+              gradient={true}
+              gradientColor="transparent"
+              gradientWidth={100}
+              speed={35}
               pauseOnHover={true}
               loop={0}
+              className="py-6"
             >
               {filteredProjects.map((project) => (
-                <div key={project.id} className="mx-4 lg:mx-6 w-[320px] md:w-[380px] lg:w-[420px] xl:w-[480px] 2xl:w-[520px] flex-shrink-0">
+                <div key={project.id} className="mx-6 lg:mx-8 flex-shrink-0">
                   <ProjectCard
                     title={project.title}
                     description={project.description}
@@ -100,19 +105,21 @@ const ProjectsSection = () => {
           </div>
           
           {/* Mobile and Tablet Grid */}
-          <div className="block md:hidden w-full max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-              {filteredProjects.map((project) => (
-                <div key={project.id} className="w-full mx-auto">
-                  <ProjectCard
-                    title={project.title}
-                    description={project.description}
-                    imgUrl={project.image}
-                    gitUrl={project.gitUrl}
-                    previewUrl={project.previewUrl}
-                  />
-                </div>
-              ))}
+          <div className="block md:hidden w-full px-4 sm:px-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 justify-items-center">
+                {filteredProjects.map((project) => (
+                  <div key={project.id} className="flex justify-center">
+                    <ProjectCard
+                      title={project.title}
+                      description={project.description}
+                      imgUrl={project.image}
+                      gitUrl={project.gitUrl}
+                      previewUrl={project.previewUrl}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

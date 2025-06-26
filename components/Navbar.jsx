@@ -26,63 +26,25 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle smooth scrolling with content-aware centering
-  const handleScroll = (e, targetId) => {
+  // Simple smooth scrolling handler
+  const handleSmoothScroll = (e, targetId) => {
     e.preventDefault();
-    setMenuOpen(false);
     
-    // Content-aware centering approach
-    setTimeout(() => {
-      const target = document.getElementById(targetId);
-      if (target) {
-        const navbarHeight = window.innerWidth >= 640 ? 80 : 64;
-        const viewportHeight = window.innerHeight;
-        const isMobile = window.innerWidth < 640;
-        
-        // Find the main content within the section
-        let contentElement = target;
-        
-        // Look for specific content containers
-        if (targetId === "projects") {
-          const projectsTitle = target.querySelector('h2');
-          const projectsGrid = target.querySelector('.block, .hidden');
-          contentElement = projectsTitle || projectsGrid || target;
-        } else if (targetId === "about") {
-          const aboutCard = target.querySelector('.backdrop-blur-xl, .bg-transparent');
-          contentElement = aboutCard || target;
-        } else if (targetId === "contact") {
-          const contactForm = target.querySelector('.rounded-xl, .backdrop-blur-xl');
-          contentElement = contactForm || target;
+    // Close mobile menu if open
+    if (menuOpen) {
+      setMenuOpen(false);
+      // Slightly longer delay for smoother mobile menu transition
+      setTimeout(() => {
+        if (window.smoothScrollToSection) {
+          window.smoothScrollToSection(targetId);
         }
-        
-        // Get positions
-        const contentRect = contentElement.getBoundingClientRect();
-        const contentTop = contentRect.top + window.pageYOffset;
-        const contentHeight = contentRect.height;
-        
-        // Calculate centering with section-specific adjustments
-        let scrollPosition;
-        
-        if (targetId === "projects") {
-          // For projects, show title and some content
-          scrollPosition = contentTop - navbarHeight - (isMobile ? 20 : 150);
-        } else if (targetId === "about") {
-          // For about, use similar approach as projects
-          scrollPosition = contentTop - navbarHeight - (isMobile ? 30 : 40);
-        } else if (targetId === "contact") {
-          // For contact, use similar approach as projects
-          scrollPosition = contentTop - navbarHeight - (isMobile ? 25 : 100);
-        } else {
-          // Default
-          scrollPosition = contentTop - navbarHeight - 100;
-        }
-
-        window.scrollTo({
-          top: Math.max(0, scrollPosition),
-          behavior: "smooth"
-        });
+      }, 250);
+    } else {
+      // Immediate smooth scroll for desktop
+      if (window.smoothScrollToSection) {
+        window.smoothScrollToSection(targetId);
       }
-    }, menuOpen ? 600 : 200);
+    }
   };
   
   return (
@@ -95,13 +57,13 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden sm:flex">
           <li className=" ml-6 lg:ml-10 font-extrabold text-base lg:text-xl cursor-pointer">
-            <button onClick={(e) => handleScroll(e, "projects")} className="text-white hover:text-[#e252e1] transition-colors mobile-touch">My Projects</button>
+            <button onClick={(e) => handleSmoothScroll(e, "projects")} className="text-white hover:text-[#e252e1] transition-colors mobile-touch">My Projects</button>
           </li>
           <li className="text-white ml-6 lg:ml-10 font-extrabold text-base lg:text-xl cursor-pointer">
-            <button onClick={(e) => handleScroll(e, "about")} className="hover:text-[#e252e1] transition-colors mobile-touch">About Me</button>
+            <button onClick={(e) => handleSmoothScroll(e, "about")} className="hover:text-[#e252e1] transition-colors mobile-touch">About Me</button>
           </li>
           <li className="ml-6 lg:ml-10 font-extrabold text-base lg:text-xl cursor-pointer">
-            <button onClick={(e) => handleScroll(e, "contact")} className="text-white hover:text-[#e252e1] transition-colors mobile-touch">Contact Me</button>        
+            <button onClick={(e) => handleSmoothScroll(e, "contact")} className="text-white hover:text-[#e252e1] transition-colors mobile-touch">Contact Me</button>        
           </li>
         </ul>
 
@@ -127,9 +89,9 @@ const Navbar = () => {
 
         <div className="flex flex-col text-white h-full justify-center items-center -mt-16">
           <ul className="space-y-8 text-center">
-            <li><button onClick={(e) => handleScroll(e, "projects")} className="py-3 text-2xl font-semibold hover:text-[#e252e1] transition-colors mobile-touch w-full text-center">My Projects</button></li>
-            <li><button onClick={(e) => handleScroll(e, "about")} className="py-3 text-2xl font-semibold hover:text-[#e252e1] transition-colors mobile-touch w-full text-center">About Me</button></li>
-            <li><button onClick={(e) => handleScroll(e, "contact")} className="py-3 text-2xl font-semibold hover:text-[#e252e1] transition-colors mobile-touch w-full text-center">Contact Me</button></li>
+            <li><button onClick={(e) => handleSmoothScroll(e, "projects")} className="py-3 text-2xl font-semibold hover:text-[#e252e1] transition-colors mobile-touch w-full text-center">My Projects</button></li>
+            <li><button onClick={(e) => handleSmoothScroll(e, "about")} className="py-3 text-2xl font-semibold hover:text-[#e252e1] transition-colors mobile-touch w-full text-center">About Me</button></li>
+            <li><button onClick={(e) => handleSmoothScroll(e, "contact")} className="py-3 text-2xl font-semibold hover:text-[#e252e1] transition-colors mobile-touch w-full text-center">Contact Me</button></li>
           </ul>
 
           {/* Social Icons */}
