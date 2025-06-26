@@ -44,7 +44,7 @@ const HeroSection = () => {
           </p>
           <div className="flex justify-center sm:justify-start">
             <a
-              href="/christopoulou-cv.pdf"
+              href="/public/images/christopoulou-cv.pdf"
               download
               className="relative overflow-hidden h-10 sm:h-12 px-6 sm:px-8 rounded-full bg-[#3d3a4e] text-white border-none cursor-pointer transition-all duration-500 flex items-center justify-center group text-sm sm:text-base"
             >
